@@ -1,0 +1,40 @@
+.container {
+  max-width: 90rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0 5rem;
+
+  margin: 5rem auto;
+  margin-bottom: 0;
+  .question {
+    border-bottom: 1px solid #dbdef0;
+  }
+
+  .options {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.8rem;
+    color: $color-dark-blue;
+    font-weight: 500;
+    .option {
+      border: 1px solid $color-light-blue;
+      border-radius: 10px;
+      padding: 0.5rem 2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        background-color: $color-light-blue;
+      }
+    }
+
+    padding-bottom: 2rem;
+  }
+}
+
+.heading-secondary {
+  color: $color-md-blue;
+  font-size: 2.4rem;
+  padding: 2rem 0;
+  font-weight: 700;
+}
