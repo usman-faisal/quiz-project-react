@@ -2,14 +2,15 @@ import React from "react";
 import Quiz from "./Quiz";
 import { nanoid } from "nanoid";
 import shuffle from "./shuffle";
-console.log(shuffle);
 
 export default function Quizes() {
   // INITIALIZING STATE WHICH STORES DATA
   const [data, setData] = React.useState([]);
-  const [quizes, setQuizes] = React.useState([]);
-  // INTIALIZING STATE END
+  const [count, setCount] = React.useState(0);
+  const [showResult, setShowResult] = React.useState(false);
+  const [total, setTotal] = React.useState(0);
 
+  // INTIALIZING STATE END
   // FETCHING DATA
   React.useEffect(() => {
     fetch(
@@ -52,6 +53,7 @@ export default function Quizes() {
 
   // HANDLING CLICK EVENTS ON OPTIONS
   function handleClick(e) {
+    if (showResult) return;
     const value = e.target;
     const question = e.target.closest(".question");
     setData((prevData) => {
@@ -65,19 +67,30 @@ export default function Quizes() {
         } else return item;
       });
     });
-
-    // const [selectedQuiz] = data.filter((x) => x.id == question.id);
-    // const notSelectedQuiz = data.filter((x) => x.id != question.id);
-    // console.log(selectedQuiz);
-    // const selectedOption = selectedQuiz.options.map((x) =>
-    //   x.id == value.id ? (x.isSelected = !x.isSelected) : x
-    // );
-    // const newArr = [...notSelectedQuiz, selectedQuiz];
-    // console.log(newArr);
   }
-  console.log(data);
-
   // END OF HANDLING CLICK EVENTS
+
+  // COUNTING NUMBER OF SELECTIONS OF USER
+  React.useEffect(() => {
+    let total = 0;
+    for (const i of data) {
+      for (const x of i.options) {
+        x.isSelected && total++;
+      }
+    }
+    setCount(total);
+  }, [data]);
+  // COUNTING NUMBER OF SELECTIONS END
+
+  function handleShowResult() {
+    if (count != 4) return;
+    setShowResult(true);
+    calculateCorrect();
+  }
+  function handlePlayAgain() {
+    setShowResult(false);
+    location.reload();
+  }
 
   // LOOPING OVER ELEMENTS TO RENDER QUIZ
   const quizElements = data.map((el) => {
@@ -88,19 +101,46 @@ export default function Quizes() {
         key={nanoid()}
         question={el.question}
         optionSelected={el.options}
-        options={[...el.incorrect_answers, el.correct_answer]}
+        options={el.options.map((item) => item.value)}
         onClick={handleClick}
+        showResult={showResult}
+        correct_answer={el.correct_answer}
       />
     );
   });
   // RENDER QUIZ END
+  function calculateCorrect() {
+    const userSelected = [];
+    const correct_answer = [];
+    for (const i of data) {
+      correct_answer.push(i.correct_answer);
+      for (const x of i.options) {
+        if (x.isSelected) userSelected.push(x.value);
+      }
+    }
+    let total = 0;
+    for (let i = 0; i < userSelected.length; i++) {
+      if (userSelected[i] == correct_answer[i]) total++;
+    }
+    setTotal(total);
+  }
 
-  // console.log(quiz[0]);
   ////////////////////
   return (
     <div className="container">
       {quizElements}
-      <button className="btn btn--quiz">Check answers</button>
+      {showResult ? (
+        <>
+          <button onClick={handlePlayAgain} className="btn btn--quiz">
+            Play again
+            <p>You scored {total}/4 correct answers</p>
+          </button>
+        </>
+      ) : (
+        <button onClick={handleShowResult} className="btn btn--quiz">
+          Check answers
+        </button>
+      )}
     </div>
   );
 }

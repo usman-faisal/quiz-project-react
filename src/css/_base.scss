@@ -6,15 +6,13 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  //   overflow: hidden;
 }
 body {
   background-color: $color-background;
   font-family: "Karla", sans-serif;
   font-weight: 400;
   position: relative;
-  height: 100vh;
-  //   overflow: hidden;
+  min-height: 100vh;
 }
 .blob {
   position: absolute;

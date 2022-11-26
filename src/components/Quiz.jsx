@@ -1,11 +1,21 @@
 import { nanoid } from "nanoid";
+
 export default function Quiz(props) {
   const options = props.options.map((opt, index) => {
     const styles = {
       backgroundColor: props.optionSelected[index].isSelected
         ? "#d6dbf5"
         : "none",
+      [props.showResult && "backgroundColor"]:
+        props.optionSelected[index].value == props.correct_answer && "#94D7A2",
+      [props.showResult &&
+      props.optionSelected[index].isSelected &&
+      "backgroundColor"]:
+        props.optionSelected[index].value == props.correct_answer
+          ? "#94D7A2"
+          : "#F8BCBC",
     };
+
     return (
       <p
         key={nanoid()}

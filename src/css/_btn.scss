@@ -7,10 +7,14 @@
   padding: 1rem 4rem;
   color: $color-background;
   cursor: pointer;
-  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
   &:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    transform: translateY(0rem);
+    box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.2);
   }
 }
