@@ -90,6 +90,7 @@ export default function Quizes() {
   }
   function handlePlayAgain() {
     setShowResult(false);
+    setData([]);
     setStart((prev) => !prev);
   }
 

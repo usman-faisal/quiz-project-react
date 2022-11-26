@@ -19,6 +19,9 @@ body {
   font-weight: 400;
   position: relative;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .blob {
   position: absolute;
@@ -26,6 +29,7 @@ body {
   &--1 {
     width: 40rem;
     top: 50%;
+    left: 10%;
   }
   &--2 {
     width: 30rem;
