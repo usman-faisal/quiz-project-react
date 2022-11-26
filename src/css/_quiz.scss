@@ -21,6 +21,13 @@
     font-size: 1.8rem;
     color: $color-dark-blue;
     font-weight: 500;
+    @media only screen and (max-width: 36.5em) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      grid-template-rows: repeat(auto, 1fr);
+      justify-content: space-around;
+    }
     .option {
       border: 1px solid $color-light-blue;
       border-radius: 10px;

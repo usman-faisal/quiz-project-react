@@ -9,6 +9,9 @@
   cursor: pointer;
   box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.2);
   transition: all 0.2s;
+  @media only screen and (max-width: 36.5em) {
+    margin-bottom: 8rem;
+  }
   &:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
