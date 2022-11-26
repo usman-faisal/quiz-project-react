@@ -5,6 +5,7 @@ import shuffle from "./shuffle";
 
 export default function Quizes() {
   // INITIALIZING STATE WHICH STORES DATA
+  const [start, setStart] = React.useState(true);
   const [data, setData] = React.useState([]);
   const [count, setCount] = React.useState(0);
   const [showResult, setShowResult] = React.useState(false);
@@ -48,7 +49,7 @@ export default function Quizes() {
           })
         )
       );
-  }, []);
+  }, [start]);
   // FETCHING DATA END
 
   // HANDLING CLICK EVENTS ON OPTIONS
@@ -89,7 +90,7 @@ export default function Quizes() {
   }
   function handlePlayAgain() {
     setShowResult(false);
-    location.reload();
+    setStart((prev) => !prev);
   }
 
   // LOOPING OVER ELEMENTS TO RENDER QUIZ
