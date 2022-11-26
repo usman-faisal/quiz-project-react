@@ -7,6 +7,10 @@
 
   margin: 5rem auto;
   margin-bottom: 0;
+  @media only screen and (max-width: 43.75em) {
+    padding: 0 3rem;
+  }
+
   .question {
     border-bottom: 1px solid #dbdef0;
   }

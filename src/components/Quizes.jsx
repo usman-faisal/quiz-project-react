@@ -128,6 +128,7 @@ export default function Quizes() {
   ////////////////////
   return (
     <div className="container">
+      {data.length == 0 && <h1 className="loading">Loading...</h1>}
       {quizElements}
       {showResult ? (
         <>
@@ -137,9 +138,11 @@ export default function Quizes() {
           </button>
         </>
       ) : (
-        <button onClick={handleShowResult} className="btn btn--quiz">
-          Check answers
-        </button>
+        data.length != 0 && (
+          <button onClick={handleShowResult} className="btn btn--quiz">
+            Check answers
+          </button>
+        )
       )}
     </div>
   );
