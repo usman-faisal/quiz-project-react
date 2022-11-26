@@ -95,5 +95,10 @@ export default function Quizes() {
 
   // console.log(quiz[0]);
   ////////////////////
-  return <div className="container">{quizElements}</div>;
+  return (
+    <div className="container">
+      {quizElements}
+      <button className="btn btn--quiz">Check answers</button>
+    </div>
+  );
 }
