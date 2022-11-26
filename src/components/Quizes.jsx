@@ -1,6 +1,8 @@
 import React from "react";
 import Quiz from "./Quiz";
 import { nanoid } from "nanoid";
+import shuffle from "./shuffle";
+console.log(shuffle);
 
 export default function Quizes() {
   // INITIALIZING STATE WHICH STORES DATA
@@ -22,7 +24,7 @@ export default function Quizes() {
               question: item.question,
               incorrect_answers: item.incorrect_answers,
               correct_answer: item.correct_answer,
-              options: [
+              options: shuffle([
                 {
                   id: nanoid(),
                   value: item.incorrect_answers[0],
@@ -39,7 +41,7 @@ export default function Quizes() {
                   isSelected: false,
                 },
                 { id: nanoid(), value: item.correct_answer, isSelected: false },
-              ],
+              ]),
             };
             return { ...obj };
           })

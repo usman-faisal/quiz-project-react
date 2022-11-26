@@ -16,17 +16,6 @@
     font-size: 1.8rem;
     padding-bottom: 2rem;
   }
-  &__btn {
-    background-color: $color-md-blue;
-    border: none;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1.8rem;
-    padding: 1rem 4rem;
-    color: $color-background;
-    cursor: pointer;
-    box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.1);
-  }
 }
 
 @keyframes typeWriter {

@@ -7,7 +7,7 @@ export default function Home() {
       <p className="home__desc">Test your knowledge</p>
 
       <Link to="/quiz">
-        <button className="home__btn">Start quiz</button>
+        <button className="btn">Start quiz</button>
       </Link>
     </div>
   );
