@@ -45,3 +45,69 @@ body {
   transform: translate(-50%, -50%);
   animation: loading 0.5s infinite;
 }
+
+.container-blob-1 {
+  height: 20rem;
+  width: 20rem;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  background-color: $color-blob-1;
+  animation: typeWriterone 20s infinite ease-in-out 2s;
+  opacity: 0.6;
+}
+.container-blob-2 {
+  height: 15rem;
+  width: 15rem;
+  z-index: -1;
+  position: absolute;
+
+  background-color: $color-blob-2;
+  animation: typeWritertwo 25s infinite ease-in-out 2s;
+  opacity: 0.6;
+}
+@keyframes typeWriterone {
+  0% {
+    border-radius: 82% 18% 78% 22% / 43% 49% 51% 57%;
+    transform: scale(1.4) rotate(-90deg);
+    top: 50%;
+    left: 10%;
+  }
+  50% {
+    border-radius: 18% 82% 9% 91% / 65% 29% 71% 35%;
+    transform: scale(1.4) rotate(90deg);
+
+    top: 45%;
+    left: 13%;
+  }
+
+  100% {
+    border-radius: 82% 18% 78% 22% / 43% 49% 51% 57%;
+    transform: scale(1.4) rotate(-90deg);
+    top: 50%;
+    left: 10%;
+  }
+}
+@keyframes typeWritertwo {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(1.4) rotate(-90deg);
+    top: 10%;
+    right: 20%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: scale(1.4) rotate(90deg);
+
+    top: 20%;
+    right: 10%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(1.4) rotate(-90deg);
+    top: 10%;
+    right: 20%;
+  }
+}

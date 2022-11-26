@@ -7,7 +7,9 @@ import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <svg
+    <div class="container-blob-1"></div>
+    <div class="container-blob-2"></div>
+    {/* <svg
       className="blob blob--1"
       viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +30,7 @@ root.render(
         d="M40.4,-56.9C52.4,-46.8,62.5,-35.2,66.7,-21.8C70.9,-8.4,69.3,6.8,63.9,19.9C58.5,33,49.2,44,37.9,54.7C26.6,65.5,13.3,76,-0.5,76.7C-14.3,77.4,-28.7,68.3,-38.9,57.2C-49.2,46.1,-55.3,33.1,-61.1,19C-66.9,4.9,-72.3,-10.2,-69.7,-24.1C-67.2,-38,-56.7,-50.8,-43.7,-60.6C-30.8,-70.4,-15.4,-77.3,-0.6,-76.4C14.1,-75.5,28.3,-67,40.4,-56.9Z"
         transform="translate(100 100)"
       />
-    </svg>
+    </svg> */}
     <App />
   </BrowserRouter>
 );
