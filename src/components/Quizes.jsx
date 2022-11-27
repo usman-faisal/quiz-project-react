@@ -84,7 +84,7 @@ export default function Quizes() {
   // COUNTING NUMBER OF SELECTIONS END
 
   function handleShowResult() {
-    if (count != 4) return;
+    if (count != data.length) return;
     setShowResult(true);
     calculateCorrect();
   }
@@ -135,7 +135,7 @@ export default function Quizes() {
       {showResult ? (
         <div className="btn-div">
           <h2 className="heading-secondary">
-            You scored {total}/4 correct answers
+            You scored {total}/{data.length} correct answers
           </h2>
           <button onClick={handlePlayAgain} className="btn btn--quiz">
             Play again
