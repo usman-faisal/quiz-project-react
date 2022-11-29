@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { decode } from "html-entities";
 
 export default function Quiz(props) {
   const options = props.options.map((opt, index) => {
@@ -24,13 +25,13 @@ export default function Quiz(props) {
         className="option"
         id={props.optionsID[index].id}
       >
-        {opt}
+        {decode(opt)}
       </p>
     );
   });
   return (
     <div id={props.questionID} className="question">
-      <h2 className="heading-secondary">{props.question}</h2>
+      <h2 className="heading-secondary">{decode(props.question)}</h2>
       <div className="options">{options}</div>
     </div>
   );
